@@ -25,9 +25,9 @@
 			}
 		</style>
   </head>
-  <body>
-	<div class="container">
-		<div id="osorok" class="carousel slide" data-ride="false" style="display:none">
+  <body onload="onLoadFunc()">
+	<div class="container d-none">
+		<div id="osorok" class="carousel slide" data-ride="false">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img class="d-block w-100" src="./images/osorok-temp/0001.jpg">
@@ -78,7 +78,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<!-- swipe start -->
-	<script src='//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js'></script>
 	<script type="text/javascript">
 		$(".carousel").swipe({
 			swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
@@ -87,10 +87,16 @@
 			},
 			allowPageScroll: "vertical" 
 		});
-		const expiredDate = new Date('2020-09-12T18:45:00');
-		const current = Date.now()
-		if(current.getTime() < expiredDate.getTime()) {
-			$(".carousel").display = 'block'
+	</script>
+	<script type="text/javascript">
+		function onLoadFunc() {
+			const expiredDate = new Date('2020-09-12T19:05:00');
+			const current = Date.now()
+			console.log(current)
+			console.log(expiredDate.getTime())
+			if(current < expiredDate.getTime()) {
+				$('.container').removeClass('d-none')
+			}
 		}
 	</script>
 <!-- swipe end -->
