@@ -27,7 +27,7 @@
   </head>
   <body>
 	<div class="container">
-		<div id="osorok" class="carousel slide" data-ride="false">
+		<div id="osorok" class="carousel slide" data-ride="false" style="display:none">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img class="d-block w-100" src="./images/osorok-temp/0001.jpg">
@@ -87,6 +87,11 @@
 			},
 			allowPageScroll: "vertical" 
 		});
+		const expiredDate = new Date('2020-09-12T18:45:00');
+		const current = Date.now()
+		if(current.getTime() < expiredDate.getTime()) {
+			$(".carousel").display = 'block'
+		}
 	</script>
 <!-- swipe end -->
   </body>
